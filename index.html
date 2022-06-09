@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>game</title>
+		<script src="./game.js" defer></script>
+	</head>
+	<style>
+		body {
+			font-family: 'Courier New', Courier, monospace;
+			height: 100vh;
+			background-color: rgb(56, 56, 56);
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+		.game__container {
+			display: flex;
+
+			justify-content: space-between;
+			align-items: center;
+			width: 70%;
+		}
+		.player__options {
+			width: 200px;
+			height: 200px;
+			background-color: aliceblue;
+			border-radius: 50%;
+			box-shadow: 0px 0px 10px black;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			cursor: pointer;
+			position: relative;
+			transition: all 0.5s ease-in-out;
+		}
+		.vs {
+			width: 200px;
+			height: 200px;
+			background-color: aliceblue;
+			border-radius: 50%;
+			box-shadow: 0px 0px 10px black;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			cursor: pointer;
+			transition: all 0.5s ease-in-out;
+		}
+		.computer__options {
+			width: 200px;
+			height: 200px;
+			background-color: aliceblue;
+			border-radius: 50%;
+			box-shadow: 0px 0px 10px black;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			cursor: pointer;
+			transition: all 0.5s ease-in-out;
+		}
+
+		.options > img {
+			width: 40px;
+		}
+
+		.options {
+			transition: all 0.5s ease-in-out;
+			margin-bottom: 30px;
+		}
+
+		.play__block {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.option {
+			cursor: pointer;
+			transition: all 0.5s ease-in-out;
+		}
+		.option:hover {
+			transform: scale(1.5);
+		}
+		.computer__option {
+			cursor: pointer;
+			display: none;
+		}
+
+		.winner {
+			display: flex;
+			align-items: center;
+		}
+		.winner > button {
+			display: none;
+			padding: 10px 20px;
+			border: none;
+			outline: none;
+			font-size: 20px;
+			font-weight: bold;
+			cursor: pointer;
+			border-radius: 10px;
+			background-color: rgb(133, 233, 133);
+			margin-left: 30px;
+		}
+	</style>
+	<body>
+		<div class="game__container">
+			<div class="play__block">
+				<div class="options" id="options">
+					<img
+						id="player__tock"
+						src="./assets/rock.png"
+						alt=""
+						class="option"
+						onclick="playerSelection('rock')"
+					/>
+					<img
+						id="player__paper"
+						src="./assets/paper.png"
+						alt=""
+						class="option"
+						onclick="playerSelection('paper')"
+					/>
+					<img
+						id="player__scissor"
+						src="./assets/scissor.png"
+						alt=""
+						class="option"
+						onclick="playerSelection('scissor')"
+					/>
+				</div>
+
+				<div class="player__options" id="player">
+					<img src="./assets/options.png" alt="" />
+				</div>
+			</div>
+
+			<div class="vs"><img src="./assets/vs.png" alt="" /></div>
+
+			<div class="play__block">
+				<div class="options" id="options">
+					<img
+						id="computer__tock"
+						src="./assets/rock.png"
+						alt=""
+						class="computer__option"
+					/>
+					<img
+						id="computer__paper"
+						src="./assets/paper.png"
+						alt=""
+						class="computer__option"
+					/>
+					<img
+						id="computer__scissor"
+						src="./assets/scissor.png"
+						alt=""
+						class="computer__option"
+					/>
+				</div>
+				<div class="computer__options">
+					<img src="./assets/robot.png" alt="" />
+				</div>
+			</div>
+		</div>
+
+		<div class="winner">
+			<h1 id="winner"></h1>
+			<button id="play__again" onclick="playAgain()">Play Again</button>
+		</div>
+	</body>
+</html>
